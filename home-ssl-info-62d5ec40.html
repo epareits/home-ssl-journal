@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leyu · 资料索引与信息卡片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f7f7fa;
+            color: #1d1e22;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(135deg, #0b0c10 0%, #1f2a38 100%);
+            color: #eaeef2;
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero h1 span {
+            color: #f5b041;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 0.5rem auto 0;
+            font-size: 1.1rem;
+            color: #b8c7d6;
+            font-weight: 300;
+        }
+
+        .hero .sub {
+            margin-top: 1.2rem;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 0.35rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #9fb3c9;
+            border: 1px solid #2f3f4e;
+        }
+
+        /* 浅色正文区 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+        }
+
+        .section-title {
+            font-size: 1.65rem;
+            font-weight: 450;
+            border-left: 5px solid #f5b041;
+            padding-left: 1.2rem;
+            margin-bottom: 2.2rem;
+            color: #1e2a36;
+        }
+
+        /* 信息卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 2rem 1.5rem;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #edeef2;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 28px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #1b2936;
+        }
+
+        .card p {
+            color: #3d4b5a;
+            font-size: 0.98rem;
+        }
+
+        .card p a {
+            color: #d68910;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #d68910;
+        }
+
+        .card p a:hover {
+            color: #b36b00;
+            border-bottom: 1px solid #b36b00;
+        }
+
+        /* 人群列举 */
+        .audience-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem 3.5rem;
+            background: #fff;
+            padding: 2.2rem 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+            margin: 2.8rem 0 3.5rem;
+            border: 1px solid #e9ecf0;
+        }
+
+        .audience-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .audience-item .emoji-badge {
+            background: #edf2f7;
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+        }
+
+        .audience-item span:last-child {
+            font-weight: 430;
+            color: #2b3b4b;
+        }
+
+        /* 自然链接段落 */
+        .link-paragraph {
+            background: #ffffff;
+            padding: 2.2rem 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            margin: 2.2rem 0 3rem;
+            border: 1px solid #e2e7ed;
+            font-size: 1.05rem;
+        }
+
+        .link-paragraph a {
+            color: #d68910;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1px;
+            font-weight: 480;
+        }
+
+        .link-paragraph a:hover {
+            color: #a86a0b;
+            text-decoration-thickness: 2px;
+        }
+
+        .link-paragraph .tag {
+            display: inline-block;
+            background: #f1f3f6;
+            padding: 0.15rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #3f5568;
+            margin-right: 0.3rem;
+        }
+
+        /* FAQ 小摘要 */
+        .faq-mini {
+            margin-top: 3rem;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.5rem;
+            border: 1px solid #e4e9ef;
+        }
+
+        .faq-mini h4 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 1.6rem;
+            color: #1b2a38;
+        }
+
+        .faq-item {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #edf0f4;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item strong {
+            color: #2b3d4e;
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            color: #536473;
+            font-size: 0.95rem;
+        }
+
+        .footer-note {
+            margin-top: 4rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6f7d8b;
+            border-top: 1px solid #dde2e8;
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+            .hero {
+                padding: 3.5rem 1.2rem 3rem;
+            }
+            .container {
+                padding: 2rem 1.2rem;
+            }
+            .audience-list {
+                padding: 1.5rem;
+                gap: 1.2rem;
+            }
+            .faq-mini {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1>资料整理 · <span>leyu</span></h1>
+        <p>从信息索引到使用场景，一份温和而清晰的卡片式介绍。</p>
+        <div class="sub">📋 基于常用检索习惯 · 2025</div>
+    </section>
+
+    <main class="container">
+        <!-- 主视觉 / 用途卡片 -->
+        <h2 class="section-title">📌 功能卡片</h2>
+        <div class="card-grid">
+            <div class="card">
+                <span class="card-icon">🔍</span>
+                <h3>资源索引</h3>
+                <p>将分散的信息条目进行归类，方便按主题快速查阅。许多常用资料都可以在 <a href="https://home-ssl-leyu.com">leyu</a> 的整理框架中找到对应入口。</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🧩</span>
+                <h3>模块化浏览</h3>
+                <p>每个卡片代表一个独立的信息单元，支持横向对比和纵向追溯，减少重复翻阅的负担。</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">📎</span>
+                <h3>条目关联</h3>
+                <p>通过内部链接与标签，将不同类别的材料连接在一起，形成更立体的知识网络。</p>
+            </div>
+        </div>
+
+        <!-- 适合人群 -->
+        <h2 class="section-title">👥 适合这样的人群</h2>
+        <div class="audience-list">
+            <div class="audience-item">
+                <div class="emoji-badge">📚</div>
+                <span>日常需要整理书签与笔记的人</span>
+            </div>
+            <div class="audience-item">
+                <div class="emoji-badge">🧑‍💻</div>
+                <span>关注信息结构化的研究者</span>
+            </div>
+            <div class="audience-item">
+                <div class="emoji-badge">🔖</div>
+                <span>希望减少查找成本的普通用户</span>
+            </div>
+            <div class="audience-item">
+                <div class="emoji-badge">🗂️</div>
+                <span>对内容分类有偏好的读者</span>
+            </div>
+        </div>
+
+        <!-- 自然链接段落 -->
+        <h2 class="section-title">🔗 关于信息入口</h2>
+        <div class="link-paragraph">
+            <span class="tag">索引</span> 
+            在资料索引的实际操作中，往往会遇到来源分散、标题模糊的情况。一个相对稳定的起始页面可以帮助减少记忆负担。例如，你可以在常用浏览器中直接定位到 
+            <a href="https://home-ssl-leyu.com">leyu</a>，将其作为分类起点之一。这个页面本身并不承诺面面俱到，而是提供一种结构化的访问习惯，适合长期维护自己的信息收藏夹。
+        </div>
+
+        <div class="link-paragraph" style="margin-top: 1rem;">
+            <span class="tag">笔记</span> 
+            如果你也在尝试建立个人知识库，不妨把 
+            <a href="https://home-ssl-leyu.com">leyu</a> 当作其中一个参考节点。不是作为唯一中心，而是作为众多可组合的模块之一。保持资料的轻量和可检索，比堆积数量更有意义。
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-mini">
+            <h4>❓ 常见小问题</h4>
+            <div class="faq-item">
+                <strong>这个介绍页能解决什么问题？</strong>
+                <p>主要是展示一种信息组织方式，方便你了解页面背后的分类逻辑。具体的使用习惯可以根据个人需求调整。</p>
+            </div>
+            <div class="faq-item">
+                <strong>是否需要注册或登录？</strong>
+                <p>本页面仅为介绍与索引参考，不涉及任何账户流程。所有链接均指向公开资料入口。</p>
+            </div>
+            <div class="faq-item">
+                <strong>内容会更新吗？</strong>
+                <p>卡片和段落基于当前稳定的信息结构编写，未来可能根据实际使用反馈进行调整。</p>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            — 信息卡片 · 温和索引 —
+        </div>
+    </main>
+
+</body>
+</html>
