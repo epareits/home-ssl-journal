@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于 leyu — 一个站点的简要说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #fafaf9;
+      color: #222;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .page {
+      flex: 1;
+      max-width: 700px;
+      margin: 4rem auto 3rem;
+      padding: 0 1.5rem;
+      width: 100%;
+    }
+    h1 {
+      font-weight: 500;
+      font-size: 2rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.25rem;
+      color: #1e1e1e;
+    }
+    .subhead {
+      font-size: 0.95rem;
+      color: #707070;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid #e7e5e4;
+      padding-bottom: 1.25rem;
+    }
+    h2 {
+      font-weight: 500;
+      font-size: 1.3rem;
+      margin: 2.2rem 0 0.75rem;
+      color: #2b2b2b;
+      letter-spacing: -0.01em;
+    }
+    p {
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      color: #333;
+    }
+    .inset-quote {
+      background: #f3f1ef;
+      border-left: 3px solid #b0a89b;
+      margin: 1.8rem 0;
+      padding: 1rem 1.4rem;
+      font-style: normal;
+      color: #3f3f3f;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border-radius: 0 4px 4px 0;
+    }
+    .inset-quote::before {
+      content: "💬";
+      margin-right: 0.5rem;
+      font-style: normal;
+    }
+    a {
+      color: #2d5a6b;
+      text-decoration: none;
+      border-bottom: 1px solid #cbd8de;
+      transition: border-color 0.2s;
+    }
+    a:hover {
+      border-bottom-color: #2d5a6b;
+    }
+    .visit-note {
+      margin-top: 3rem;
+      padding: 1.25rem 1.5rem;
+      background: #f0efed;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      color: #2c2c2c;
+      border: 1px solid #e0ddda;
+    }
+    .visit-note strong {
+      font-weight: 500;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #e3e1de;
+      margin: 2.5rem 0 1.5rem;
+    }
+    .footer-meta {
+      font-size: 0.85rem;
+      color: #8a8a8a;
+      text-align: center;
+      margin-top: 1rem;
+      padding: 1.5rem 0 2rem;
+      border-top: 1px solid #eae7e4;
+    }
+    @media (max-width: 540px) {
+      .page {
+        margin-top: 2.5rem;
+        padding: 0 1.2rem;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>关于这个站点</h1>
+    <div class="subhead">一个简要的说明与可信背景</div>
+
+    <p>
+      近两年经常能听到朋友问起一个叫 <strong>leyu</strong> 的站点，有人说是资讯聚合，也有人觉得更像是一个功能入口。出于好奇，我花了一些时间了解它的结构和定位，发现它其实并不复杂，只是一个提供特定信息索引与导航的页面。
+    </p>
+
+    <p>
+      如果你也正好在寻找它，可以直接到 <a href="https://portal-china-leyu.com">leyu</a> 看一眼。首页设计得很克制，没有多余的弹窗和推送，加载速度也让人放心。我觉得它更像一个安静的起点，而不是热闹的广场。
+    </p>
+
+    <h2>它主要做什么</h2>
+    <p>
+      根据公开可见的内容，<strong>leyu</strong> 主要整理了一些与日常信息查阅相关的链接和工具分类。没有社区互动，没有用户数据采集，也不要求注册或登录。所有页面都是静态展示，使用起来几乎零门槛。
+    </p>
+    <p>
+      我注意到它把不同板块分得很清楚，比如资讯摘要、服务导航，以及一些常用资源的快捷入口。整体逻辑是：你点开一个分类，看到对应的列表，然后自己决定去哪里。这种不替用户做判断的风格，反而让人更自在。
+    </p>
+
+    <div class="inset-quote">
+      一位经常使用该站的朋友说：“它就是那种，你不需要向任何人解释你在看什么的地方。打开，找到你要的，关上，结束。”
+    </div>
+
+    <h2>关于可信度的一点观察</h2>
+    <p>
+      在浏览 <a href="https://portal-china-leyu.com">leyu</a> 的过程中，我没有发现任何强制跳转或隐藏链接。所有外链都带有明确的标识，域名本身也保持简洁，没有仿冒或混淆的痕迹。从技术层面看，页面使用了标准的安全协议，响应头也做了基础防护配置。
+    </p>
+    <p>
+      另外，站内没有任何夸大其词的标语，也没有“立即注册”“限时优惠”这类催促性表达。它更像一个长期维护的信息站，而不是短期营销页面。这种克制，在如今反而显得比较难得。
+    </p>
+
+    <h2>适合什么样的人</h2>
+    <p>
+      如果你只是需要一个不那么嘈杂的起点，或者想找一个能快速定位到某些信息的地方，不妨把 <strong>leyu</strong> 加入书签。它不会试图了解你，也不会推送你不需要的东西。纯粹，直接，用完即走。
+    </p>
+
+    <div class="visit-note">
+      <strong>提示</strong><br>
+      如果你尚未访问过，可以通过上方或文中的链接直接前往 <a href="https://portal-china-leyu.com">leyu</a>。建议使用主流浏览器，以获得最佳的页面显示效果。
+    </div>
+
+    <hr>
+
+    <p style="font-size:0.95rem; color:#555;">
+      最后补充一点：本文仅为独立的站点观察笔记，不构成任何推荐或担保。网络信息变化频繁，请自行判断内容是否适合你的需求。
+    </p>
+
+    <div class="footer-meta">
+      <span>—— 写于 2025 年初 · 仅代表个人视角</span>
+    </div>
+  </div>
+</body>
+</html>
